@@ -142,7 +142,7 @@ const resolvers = {
       const user = await User.findOne({ username: username });
 
       if (!user || password !== "secret") {
-        throw new UserInputError("login fails with wrong password", args);
+        throw new UserInputError("login failed", args);
       }
 
       const tokenDetails = { username: user.username, id: user._id };

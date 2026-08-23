@@ -6,11 +6,8 @@ const EditAuthorForm = ({ authors, onEditAuthor }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const message = `Do you really want to update persons ${author.field.value} birthyear to be ${born.field.value}`;
+
     if (!born.field.value || born.field.value.toString().trim() === "") {
-      return;
-    }
-    if (!window.confirm(message)) {
       return;
     }
     await onEditAuthor({
@@ -41,7 +38,7 @@ const EditAuthorForm = ({ authors, onEditAuthor }) => {
           <input id="born" {...born.field} />
         </div>
         <div>
-          <button type="submit">Update</button>
+          <button type="submit">update author</button>
         </div>
       </fieldset>
     </form>
