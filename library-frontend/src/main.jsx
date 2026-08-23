@@ -5,6 +5,7 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { HttpLink } from "@apollo/client";
 import App from "./App.jsx";
 import AuthProvider from "./contex/AuthProvider.jsx";
+import NotificationProvider from "./contex/NotificationProvider.jsx";
 import { SetContextLink } from "@apollo/client/link/context";
 
 const authLink = new SetContextLink((prevContext) => {
@@ -29,7 +30,9 @@ const client = new ApolloClient({
 createRoot(document.getElementById("root")).render(
   <ApolloProvider client={client}>
     <AuthProvider>
-      <App />
+      <NotificationProvider>
+        <App />
+      </NotificationProvider>
     </AuthProvider>
   </ApolloProvider>,
 );

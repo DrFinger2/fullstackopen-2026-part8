@@ -3,6 +3,7 @@ import useEditAuthor from "../hooks/bookstore/UseEditAuthors";
 import AuthorTable from "../components/AuthorTable";
 import EditAuthorForm from "../components/EditAuthorForm";
 import useUser from "../hooks/authentication/useUser";
+
 const AuthorsView = () => {
   const { isLoggedIn } = useUser();
   const { authors, loading } = useAuthors();

@@ -1,19 +1,24 @@
 import useField from "../hooks/component/useField";
+import useError from "../hooks/component/useError";
+import useSuccess from "../hooks/component/useSuccess";
 
-const LoginForm = ({ onLogin, setError }) => {
+const LoginForm = ({ onLogin }) => {
   const username = useField("text");
   const password = useField("password");
 
+  const error = useError();
+  const success = useSuccess();
+
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError(null);
-
     try {
       await onLogin(username.field.value, password.field.value);
       username.reset();
       password.reset();
-    } catch (error) {
-      setError(error.message);
+
+      success("Login successful!");
+    } catch (er) {
+      error(er.message);
     }
   };
 

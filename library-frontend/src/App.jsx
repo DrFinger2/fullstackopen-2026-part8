@@ -4,9 +4,11 @@ import BooksView from "./views/BooksView";
 import NewBookView from "./views/NewBookView";
 import LoginView from "./views/LoginView";
 import RegisterView from "./views/RegisterView";
+import Notification from "./components/Notification";
 import useUser from "./hooks/authentication/useUser";
 import Show from "./components/Show";
 import useLogout from "./hooks/authentication/useLogout";
+import useNotification from "./hooks/component/useNotification";
 
 const pages = {
   authors: AuthorsView,
@@ -17,9 +19,11 @@ const pages = {
 };
 
 const App = () => {
-  const [page, setPage] = useState("authors");
+  const { type, message, idx } = useNotification();
   const { isLoggedIn } = useUser();
   const { logout } = useLogout();
+
+  const [page, setPage] = useState("authors");
   const Page = pages[page];
 
   const handleLogout = () => {
@@ -44,6 +48,7 @@ const App = () => {
         </Show>
       </div>
 
+      <Notification message={message} type={type} idx={idx} />
       <Page setPage={setPage} />
     </div>
   );

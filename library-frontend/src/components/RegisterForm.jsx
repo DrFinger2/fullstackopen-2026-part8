@@ -1,19 +1,24 @@
 import useField from "../hooks/component/useField";
+import useError from "../hooks/component/useError";
+import useSuccess from "../hooks/component/useSuccess";
 
-const RegisterForm = ({ onRegister, setError }) => {
+const RegisterForm = ({ onRegister }) => {
   const username = useField("text");
   const favoriteGenre = useField("text");
 
+  const error = useError();
+  const success = useSuccess();
+
   const handleRegister = async (e) => {
     e.preventDefault();
-    setError(null);
 
     try {
       await onRegister(username.field.value, favoriteGenre.field.value);
       username.reset();
       favoriteGenre.reset();
-    } catch (error) {
-      setError(error.message);
+      success("Registration successful!");
+    } catch (er) {
+      error(er.message);
     }
   };
 
