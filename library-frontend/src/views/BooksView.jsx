@@ -20,7 +20,7 @@ const BooksView = () => {
         options={genres}
         selected={selectedGenre}
         onSelect={setSelectedGenre}
-        clearLabel="All Genres"
+        clearLabel="all Genres"
       />
       <BookTable books={books} />
     </div>
