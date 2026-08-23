@@ -5,6 +5,7 @@ import NewBookView from "./views/NewBookView";
 import LoginView from "./views/LoginView";
 import RegisterView from "./views/RegisterView";
 import Notification from "./components/Notification";
+import RecommendView from "./views/RecommendView";
 
 import Show from "./components/Show";
 import useAuth from "./hooks/useAuth";
@@ -16,6 +17,7 @@ const pages = {
   add: NewBookView,
   login: LoginView,
   register: RegisterView,
+  recommend: RecommendView,
 };
 
 const App = () => {
@@ -37,6 +39,7 @@ const App = () => {
 
         <Show when={isLoggedIn}>
           <button onClick={() => setPage("add")}>Add book</button>
+          <button onClick={() => setPage("recommend")}>Recommend</button>
           <button onClick={handleLogout}>Logout</button>
         </Show>
 
