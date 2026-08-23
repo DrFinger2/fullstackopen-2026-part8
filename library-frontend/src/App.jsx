@@ -32,7 +32,7 @@ const App = () => {
       </div>
 
       <AuthorsView show={page === "authors"} isLoggedIn={isLoggedIn} />
-      <BooksView show={page === "books"} isLoggedIn={isLoggedIn} />
+      <BooksView show={page === "books"} />
       <NewBookView show={page === "add"} isLoggedIn={isLoggedIn} />
       <LoginView show={page === "login"} isLoggedIn={isLoggedIn} />
       <RegisterView show={page === "register"} isLoggedIn={isLoggedIn} />

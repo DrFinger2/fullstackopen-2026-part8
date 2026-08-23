@@ -1,7 +1,7 @@
 import useBooks from "../hooks/bookstore/useBooks";
 import BookTable from "../components/BookTable";
 
-const BooksView = (show, isLoggedIn) => {
+const BooksView = ({ show }) => {
   const { books, loading } = useBooks();
 
   if (!show) {

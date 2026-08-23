@@ -1,7 +1,7 @@
 import useAddBook from "../hooks/bookstore/useAddBook";
 import NewBookForm from "../components/NewBookForm";
 
-const NewBookView = (show, isLoggedIn) => {
+const NewBookView = ({ show, isLoggedIn }) => {
   const { addBook } = useAddBook();
 
   if (!show || !isLoggedIn) {
