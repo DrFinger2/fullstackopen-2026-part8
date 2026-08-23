@@ -76,3 +76,15 @@ export const LOGIN = gql`
     }
   }
 `;
+
+export const REGISTER = gql`
+  mutation createUser($username: String!, $favoriteGenre: String!) {
+    createUser(username: $username, favoriteGenre: $favoriteGenre) {
+      user {
+        username
+        favoriteGenre
+        id
+      }
+    }
+  }
+`;
