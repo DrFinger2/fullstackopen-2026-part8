@@ -2,7 +2,7 @@ import useField from "../hooks/component/useField";
 import useSelect from "../hooks/component/useSelect";
 
 const EditAuthorForm = ({ authors, onEditAuthor }) => {
-  const born = useField({ type: "number" });
+  const born = useField("number");
   const author = useSelect(authors[0]?.name);
 
   const handleSubmit = async (e) => {

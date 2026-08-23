@@ -2,10 +2,10 @@ import { useState } from "react";
 import useField from "../hooks/component/useField";
 
 const NewBookForm = ({ onAddBook }) => {
-  const title = useField({ type: "text" });
-  const author = useField({ type: "text" });
-  const published = useField({ type: "number" });
-  const genreField = useField({ type: "text" });
+  const title = useField("text");
+  const author = useField("text");
+  const published = useField("number");
+  const genreField = useField("text");
   const [genres, setGenres] = useState([]);
 
   const submit = async (event) => {
@@ -33,15 +33,15 @@ const NewBookForm = ({ onAddBook }) => {
   return (
     <form onSubmit={submit}>
       <div>
-        title
+        <div>title</div>
         <input {...title.field} />
       </div>
       <div>
-        author
+        <div>author</div>
         <input {...author.field} />
       </div>
       <div>
-        published
+        <div>published</div>
         <input {...published.field} />
       </div>
       <div>

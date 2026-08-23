@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useField = ({ type }) => {
+const useField = (type = "text") => {
   const [value, setValue] = useState("");
   const field = {
     type: type,

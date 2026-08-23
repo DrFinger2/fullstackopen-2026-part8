@@ -5,6 +5,7 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { HttpLink } from "@apollo/client";
 import App from "./App.jsx";
 import AuthProvider from "./contex/AuthProvider.jsx";
+import { SetContextLink } from "@apollo/client/link/context";
 
 const authLink = new SetContextLink((prevContext) => {
   const token = localStorage.getItem("library-user-token");
@@ -15,6 +16,7 @@ const authLink = new SetContextLink((prevContext) => {
     },
   };
 });
+
 const httpLink = new HttpLink({
   uri: "http://localhost:4000/",
 });

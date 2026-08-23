@@ -2,7 +2,7 @@ const AuthorTable = ({ authors }) => (
   <table>
     <tbody>
       <tr>
-        <th></th>
+        <th>author name</th>
         <th>born</th>
         <th>books</th>
       </tr>
