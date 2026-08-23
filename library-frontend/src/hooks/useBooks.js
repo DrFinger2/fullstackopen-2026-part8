@@ -1,12 +1,16 @@
-import { useContext } from "react";
-import BookStoreContext from "../contex/BookStoreContex";
+// hooks/useBooks.js
+import { useQuery } from "@apollo/client/react";
+import { GET_ALL_BOOKS } from "../queries";
 
-const useBooks = () => {
-  const context = useContext(BookStoreContext);
+const useBooks = (filters) => {
+  const { data, loading, error } = useQuery(GET_ALL_BOOKS, {
+    variables: filters,
+  });
+
   return {
-    books: context.books,
-    loading: context.loading,
-    addBook: context.addBook,
+    books: data?.allBooks ?? [],
+    loading,
+    error,
   };
 };
 

@@ -1,12 +1,13 @@
-import { useContext } from "react";
-import BookStoreContext from "../contex/BookStoreContex";
+import { useQuery } from "@apollo/client/react";
+import { GET_ALL_AUTHORS } from "../queries";
 
 const useAuthors = () => {
-  const context = useContext(BookStoreContext);
+  const { data, loading, error } = useQuery(GET_ALL_AUTHORS);
+
   return {
-    authors: context.authors,
-    loading: context.loading,
-    editAuthor: context.editAuthor,
+    authors: data?.allAuthors ?? [],
+    loading,
+    error,
   };
 };
 

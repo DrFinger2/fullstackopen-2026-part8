@@ -2,7 +2,7 @@ import useBooks from "../hooks/useBooks";
 import NewBookForm from "../components/NewBookForm";
 
 const NewBookView = (props) => {
-  const { addBook } = useBooks();
+  const [addBook] = useBooks();
 
   if (!props.show) {
     return null;

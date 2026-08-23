@@ -1,14 +1,16 @@
 import useAuthors from "../hooks/useAuthors";
+import useEditAuthor from "../hooks/UseEditAuthors";
 import AuthorTable from "../components/AuthorTable";
 import EditAuthorForm from "../components/EditAuthorForm";
 
 const AuthorsView = (props) => {
-  const { authors, loading, editAuthor } = useAuthors();
+  const [authors, state] = useAuthors();
+  const [editAuthor] = useEditAuthor();
 
   if (!props.show) {
     return null;
   }
-  if (loading) {
+  if (state.loading) {
     return <div>Loading...</div>;
   }
 
