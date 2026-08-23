@@ -3,7 +3,7 @@ import NotificationContext from "../../contex/NotificationContext";
 
 const useSuccess = () => {
   const ctx = useContext(NotificationContext);
-  return { error: ctx.controls.success };
+  return ctx.controls.success;
 };
 
 export default useSuccess;

@@ -3,7 +3,7 @@ import NotificationContext from "../../contex/NotificationContext";
 
 const useError = () => {
   const ctx = useContext(NotificationContext);
-  return { error: ctx.controls.error };
+  return ctx.controls.error;
 };
 
 export default useError;
