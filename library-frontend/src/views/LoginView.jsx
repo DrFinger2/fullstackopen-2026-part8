@@ -1,9 +1,9 @@
 import LoginForm from "../components/LoginForm";
 import useLogin from "../hooks/authentication/useLogin";
-const LoginView = ({ show }) => {
+const LoginView = ({ show, isLoggedIn }) => {
   const { login } = useLogin();
 
-  if (!show) {
+  if (!show || isLoggedIn) {
     return null;
   }
 

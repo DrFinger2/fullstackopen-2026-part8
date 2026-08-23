@@ -31,11 +31,11 @@ const App = () => {
         </Button>
       </div>
 
-      <AuthorsView show={page === "authors"} />
-      <BooksView show={page === "books"} />
-      <NewBookView show={page === "add" && isLoggedIn} />
-      <LoginView show={page === "login" && !isLoggedIn} />
-      <RegisterView show={page === "register" && !isLoggedIn} />
+      <AuthorsView show={page === "authors"} isLoggedIn={isLoggedIn} />
+      <BooksView show={page === "books"} isLoggedIn={isLoggedIn} />
+      <NewBookView show={page === "add"} isLoggedIn={isLoggedIn} />
+      <LoginView show={page === "login"} isLoggedIn={isLoggedIn} />
+      <RegisterView show={page === "register"} isLoggedIn={isLoggedIn} />
     </div>
   );
 };

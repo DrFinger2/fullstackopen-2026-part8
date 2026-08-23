@@ -1,10 +1,10 @@
 import useBooks from "../hooks/bookstore/useBooks";
 import BookTable from "../components/BookTable";
 
-const BooksView = (props) => {
+const BooksView = (show, isLoggedIn) => {
   const { books, loading } = useBooks();
 
-  if (!props.show) {
+  if (!show) {
     return null;
   }
   if (loading) {
