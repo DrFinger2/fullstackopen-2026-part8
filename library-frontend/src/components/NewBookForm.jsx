@@ -1,28 +1,39 @@
 import { useState } from "react";
 import useField from "../hooks/useField";
-
+import useNotification from "../hooks/useNotification";
 const NewBookForm = ({ onAddBook }) => {
   const title = useField("text");
   const author = useField("text");
   const published = useField("number");
   const genreField = useField("text");
+  const { error, success } = useNotification();
   const [genres, setGenres] = useState([]);
 
-  const submit = async (event) => {
-    event.preventDefault();
-
-    await onAddBook({
-      title: title.field.value,
-      author: author.field.value,
-      published: published.field.value,
-      genres,
-    });
-
+  const reset = () => {
     title.reset();
     author.reset();
     published.reset();
     genreField.reset();
     setGenres([]);
+  };
+
+  const submit = async (event) => {
+    event.preventDefault();
+
+    try {
+      await onAddBook({
+        title: title.field.value,
+        author: author.field.value,
+        published: published.field.value,
+        genres,
+      });
+      reset();
+      success(
+        `'${title.field.value}' by '${author.field.value}' added to books section`,
+      );
+    } catch (err) {
+      error(err.message);
+    }
   };
 
   const addGenre = () => {

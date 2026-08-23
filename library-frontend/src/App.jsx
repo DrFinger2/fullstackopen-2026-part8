@@ -7,7 +7,6 @@ import RegisterView from "./views/RegisterView";
 import Notification from "./components/Notification";
 
 import Show from "./components/Show";
-
 import useAuth from "./hooks/useAuth";
 import useNotification from "./hooks/useNotification";
 
