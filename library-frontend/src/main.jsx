@@ -3,8 +3,6 @@ import { createRoot } from "react-dom/client";
 import { ApolloProvider } from "@apollo/client/react";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { HttpLink } from "@apollo/client";
-
-import BookStoreProvider from "./contex/BookStoreProvider.jsx";
 import App from "./App.jsx";
 
 const client = new ApolloClient({
@@ -16,8 +14,6 @@ const client = new ApolloClient({
 
 createRoot(document.getElementById("root")).render(
   <ApolloProvider client={client}>
-    <BookStoreProvider>
-      <App />
-    </BookStoreProvider>
+    <App />
   </ApolloProvider>,
 );
