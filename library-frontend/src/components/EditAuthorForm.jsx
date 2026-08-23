@@ -23,9 +23,10 @@ const EditAuthorForm = ({ authors, onEditAuthor }) => {
   return (
     <form onSubmit={handleSubmit}>
       <fieldset>
+        <h3>Set birthyear</h3>
         <div>Choose an author:</div>
         <div>
-          <select {...author.field}>
+          <select {...author.field} name="name">
             {authors.map((a) => (
               <option key={a.name} value={a.name}>
                 {a.name}
@@ -34,8 +35,10 @@ const EditAuthorForm = ({ authors, onEditAuthor }) => {
           </select>
         </div>
         <div>
-          <div>Born:</div>
-          <input {...born.field} />
+          <div>
+            <label htmlFor="born">born</label>
+          </div>
+          <input id="born" {...born.field} />
         </div>
         <div>
           <button type="submit">Update</button>

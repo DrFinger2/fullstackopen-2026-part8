@@ -44,19 +44,28 @@ const NewBookForm = ({ onAddBook }) => {
   return (
     <form onSubmit={submit}>
       <div>
-        <div>title</div>
-        <input {...title.field} />
+        <div>
+          <label htmlFor="title">title</label>
+        </div>
+        <input id="title" {...title.field} />
       </div>
       <div>
-        <div>author</div>
-        <input {...author.field} />
+        <div>
+          <label htmlFor="author">author</label>
+        </div>
+        <input id="author" {...author.field} />
       </div>
       <div>
-        <div>published</div>
-        <input {...published.field} />
+        <div>
+          <label htmlFor="published">published</label>
+        </div>
+        <input id="published" {...published.field} />
       </div>
       <div>
-        <input {...genreField.field} />
+        <div>
+          <label htmlFor="genre">genre</label>
+        </div>
+        <input id="genre" {...genreField.field} />
         <button onClick={addGenre} type="button">
           add genre
         </button>

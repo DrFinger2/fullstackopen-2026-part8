@@ -30,7 +30,7 @@ const LoginForm = ({ onLogin }) => {
       </div>
       <div>
         <div>
-          <label htmlFor="username">password</label>
+          <label htmlFor="password">password</label>
         </div>
         <input id="password" {...password.field} />
       </div>
