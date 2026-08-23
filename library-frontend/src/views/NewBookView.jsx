@@ -6,7 +6,7 @@ const NewBookView = () => {
 
   return (
     <div>
-      <h2>add book</h2>
+      <h2>Add book</h2>
       <NewBookForm onAddBook={addBook} />
     </div>
   );

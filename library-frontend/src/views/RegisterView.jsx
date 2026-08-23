@@ -1,8 +1,8 @@
 import RegisterForm from "../components/RegisterForm";
-import useRegister from "../hooks/authentication/useRegister";
+import useAuth from "../hooks/authentication/useRegister";
 
 const RegisterView = ({ setPage }) => {
-  const { register } = useRegister();
+  const { register } = useAuth();
 
   const handleRegister = async (username, favoriteGenre) => {
     await register(username, favoriteGenre);

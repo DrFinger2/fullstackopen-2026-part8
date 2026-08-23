@@ -1,8 +1,8 @@
 import LoginForm from "../components/LoginForm";
-import useLogin from "../hooks/authentication/useLogin";
+import useAuth from "../hooks/authentication/useLogin";
 
 const LoginView = ({ setPage }) => {
-  const { login } = useLogin();
+  const { login } = useAuth();
 
   const handleLogin = async (username, password) => {
     await login(username, password);

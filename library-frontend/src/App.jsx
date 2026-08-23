@@ -5,8 +5,9 @@ import NewBookView from "./views/NewBookView";
 import LoginView from "./views/LoginView";
 import RegisterView from "./views/RegisterView";
 import Notification from "./components/Notification";
-import useUser from "./hooks/authentication/useUser";
 import Show from "./components/Show";
+
+import useUser from "./hooks/authentication/useUser";
 import useLogout from "./hooks/authentication/useLogout";
 import useNotification from "./hooks/component/useNotification";
 

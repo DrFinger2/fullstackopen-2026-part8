@@ -2,11 +2,10 @@ import useAuthors from "../hooks/bookstore/useAuthors";
 import useEditAuthor from "../hooks/bookstore/UseEditAuthors";
 import AuthorTable from "../components/AuthorTable";
 import EditAuthorForm from "../components/EditAuthorForm";
-import useUser from "../hooks/authentication/useUser";
 import Show from "../components/Show";
-
+import useAuth from "../hooks/authentication/useAuth";
 const AuthorsView = () => {
-  const { isLoggedIn } = useUser();
+  const { isLoggedIn } = useAuth();
   const { authors, loading } = useAuthors();
   const { editAuthor } = useEditAuthor();
 

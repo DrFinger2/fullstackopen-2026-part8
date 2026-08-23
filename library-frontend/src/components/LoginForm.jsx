@@ -1,13 +1,11 @@
 import useField from "../hooks/component/useField";
-import useError from "../hooks/component/useError";
-import useSuccess from "../hooks/component/useSuccess";
+import useNotification from "../hooks/component/useNotification";
 
 const LoginForm = ({ onLogin }) => {
   const username = useField("text");
   const password = useField("password");
 
-  const error = useError();
-  const success = useSuccess();
+  const { success, error } = useNotification();
 
   const handleLogin = async (e) => {
     e.preventDefault();

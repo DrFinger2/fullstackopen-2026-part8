@@ -12,32 +12,38 @@ const AuthProvider = ({ children }) => {
     localStorage.getItem("library-user-token"),
   );
 
-  const login = async (username, password) => {
-    const { data } = await loginMutation({
-      variables: {
-        username: String(username),
-        password: String(password),
-      },
-    });
-    localStorage.setItem("library-user-token", data.login.value);
-    setToken(data.login.value);
-    return data.login;
-  };
+  const login = Object.assign(
+    async (username, password) => {
+      const { data } = await loginMutation({
+        variables: { username: String(username), password: String(password) },
+      });
+      localStorage.setItem("library-user-token", data.login.value);
+      setToken(data.login.value);
+      return data.login;
+    },
+    { loading: loginResult.loading, error: loginResult.error },
+  );
 
-  const logout = async () => {
-    localStorage.removeItem("library-user-token");
-    setToken(null);
-  };
+  const logout = Object.assign.assign(
+    async () => {
+      localStorage.removeItem("library-user-token");
+      setToken(null);
+    },
+    { loading: false, error: undefined },
+  );
 
-  const register = async (username, favoriteGenre) => {
-    const { data } = await registerMutation({
-      variables: {
-        username: String(username),
-        favoriteGenre: String(favoriteGenre),
-      },
-    });
-    return data.createUser;
-  };
+  const register = Object.assign(
+    async (username, favoriteGenre) => {
+      const { data } = await registerMutation({
+        variables: {
+          username: String(username),
+          favoriteGenre: String(favoriteGenre),
+        },
+      });
+      return data.createUser;
+    },
+    { loading: registerResult.loading, error: registerResult.error },
+  );
 
   return (
     <AuthContext.Provider
@@ -45,22 +51,9 @@ const AuthProvider = ({ children }) => {
         token: token,
         isLoggedIn: Boolean(token),
 
-        // logout has the same struct just for consistency.
-        login: {
-          login: login,
-          loading: loginResult.loading,
-          error: loginResult.error,
-        },
-        logout: {
-          logout: logout,
-          loading: false,
-          error: undefined,
-        },
-        register: {
-          register: register,
-          loading: registerResult.loading,
-          error: registerResult.error,
-        },
+        login: login,
+        logout: logout,
+        register: register,
       }}
     >
       {children}

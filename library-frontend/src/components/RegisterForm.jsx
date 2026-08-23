@@ -1,13 +1,10 @@
 import useField from "../hooks/component/useField";
-import useError from "../hooks/component/useError";
-import useSuccess from "../hooks/component/useSuccess";
-
+import useNotification from "../hooks/component/useNotification";
 const RegisterForm = ({ onRegister }) => {
   const username = useField("text");
   const favoriteGenre = useField("text");
 
-  const error = useError();
-  const success = useSuccess();
+  const { error, success } = useNotification();
 
   const handleRegister = async (e) => {
     e.preventDefault();
