@@ -10,16 +10,20 @@ const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     const { data } = await loginMutation({
-      username: String(username),
-      password: String(password),
+      variables: {
+        username: String(username),
+        password: String(password),
+      },
     });
     return data.login;
   };
 
   const register = async (username, favoriteGenre) => {
     const { data } = await registerMutation({
-      username: String(username),
-      favoriteGenre: String(favoriteGenre),
+      variables: {
+        username: String(username),
+        favoriteGenre: String(favoriteGenre),
+      },
     });
     return data.createUser;
   };
