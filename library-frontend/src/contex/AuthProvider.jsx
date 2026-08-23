@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
           error: undefined,
         },
         register: {
-          login: register,
+          register: register,
           loading: registerResult.loading,
           error: registerResult.error,
         },
