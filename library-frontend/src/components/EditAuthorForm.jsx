@@ -1,5 +1,5 @@
-import useField from "../hooks/useField";
-import useSelect from "../hooks/useSelect";
+import useField from "../hooks/component/useField";
+import useSelect from "../hooks/component/useSelect";
 
 const EditAuthorForm = ({ authors, onEditAuthor }) => {
   const born = useField({ type: "number" });

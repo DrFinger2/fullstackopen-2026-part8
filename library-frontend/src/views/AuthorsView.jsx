@@ -1,5 +1,5 @@
-import useAuthors from "../hooks/useAuthors";
-import useEditAuthor from "../hooks/UseEditAuthors";
+import useAuthors from "../hooks/bookstore/useAuthors";
+import useEditAuthor from "../hooks/bookstore/UseEditAuthors";
 import AuthorTable from "../components/AuthorTable";
 import EditAuthorForm from "../components/EditAuthorForm";
 

@@ -47,17 +47,17 @@ const AuthProvider = ({ children }) => {
 
         // logout has the same struct just for consistency.
         login: {
-          fn: login,
+          login: login,
           loading: loginResult.loading,
           error: loginResult.error,
         },
         logout: {
-          fn: logout,
+          logout: logout,
           loading: false,
           error: null,
         },
         register: {
-          fn: register,
+          login: register,
           loading: registerResult.loading,
           error: registerResult.error,
         },
