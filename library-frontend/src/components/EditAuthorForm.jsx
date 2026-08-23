@@ -1,9 +1,8 @@
 import useField from "../hooks/useField";
-import useSelect from "../hooks/useSelect";
 
 const EditAuthorForm = ({ authors, onEditAuthor }) => {
   const born = useField("number");
-  const author = useSelect(authors[0]?.name);
+  const author = useField("text", authors[0]?.name);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
