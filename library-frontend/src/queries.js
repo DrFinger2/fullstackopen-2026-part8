@@ -36,6 +36,12 @@ export const GET_ALL_AUTHORS = gql`
   }
 `;
 
+export const GET_ALL_GENRES = gql`
+  query {
+    allGenres
+  }
+`;
+
 export const ADD_BOOK = gql`
   mutation AddBook(
     $title: String!

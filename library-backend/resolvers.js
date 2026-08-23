@@ -32,6 +32,9 @@ const resolvers = {
     me: (root, args, context) => {
       return context.currentUser;
     },
+    allGenres: async () => {
+      return Book.distinct("genres");
+    },
     bookCount: async () => {
       return Book.collection.countDocuments();
     },
