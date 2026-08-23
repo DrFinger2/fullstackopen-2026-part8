@@ -17,7 +17,12 @@ const useEditAuthor = () => {
     return data.editAuthor;
   };
 
-  return [editAuthor, result];
+  return {
+    editAuthor: editAuthor,
+    loading: result.loading,
+    error: result.error,
+    data: result.data,
+  };
 };
 
 export default useEditAuthor;

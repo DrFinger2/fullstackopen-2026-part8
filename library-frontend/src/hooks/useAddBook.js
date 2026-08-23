@@ -19,7 +19,12 @@ const useAddBook = () => {
     return data.addBook;
   };
 
-  return [addBook, result]; // result: { loading, error, data, ... }
+  return {
+    addBook: addBook,
+    loading: result.loading,
+    error: result.error,
+    data: result.data,
+  };
 };
 
 export default useAddBook;

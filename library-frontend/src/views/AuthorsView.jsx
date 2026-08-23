@@ -4,13 +4,13 @@ import AuthorTable from "../components/AuthorTable";
 import EditAuthorForm from "../components/EditAuthorForm";
 
 const AuthorsView = (props) => {
-  const [authors, state] = useAuthors();
-  const [editAuthor] = useEditAuthor();
+  const { authors, loading } = useAuthors();
+  const { editAuthor } = useEditAuthor();
 
   if (!props.show) {
     return null;
   }
-  if (state.loading) {
+  if (loading) {
     return <div>Loading...</div>;
   }
 

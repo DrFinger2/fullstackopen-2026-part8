@@ -2,12 +2,12 @@ import useBooks from "../hooks/useBooks";
 import BookTable from "../components/BookTable";
 
 const BooksView = (props) => {
-  const [books, state] = useBooks();
+  const { books, loading } = useBooks();
 
   if (!props.show) {
     return null;
   }
-  if (state.loading) {
+  if (loading) {
     return <div>Loading...</div>;
   }
 

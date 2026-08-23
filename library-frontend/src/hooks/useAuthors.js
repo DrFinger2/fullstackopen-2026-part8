@@ -6,8 +6,8 @@ const useAuthors = () => {
 
   return {
     authors: data?.allAuthors ?? [],
-    loading,
-    error,
+    loading: loading,
+    error: error,
   };
 };
 
