@@ -1,6 +1,6 @@
 // hooks/useAddBook.js
 import { useMutation } from "@apollo/client/react";
-import { ADD_BOOK, GET_ALL_BOOKS, GET_ALL_AUTHORS } from "../../queries";
+import { ADD_BOOK, GET_ALL_BOOKS, GET_ALL_AUTHORS } from "../queries";
 
 const useAddBook = () => {
   const [addBookMutation, result] = useMutation(ADD_BOOK, {

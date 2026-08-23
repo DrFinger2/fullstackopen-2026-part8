@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
     { loading: loginResult.loading, error: loginResult.error },
   );
 
-  const logout = Object.assign.assign(
+  const logout = Object.assign(
     async () => {
       localStorage.removeItem("library-user-token");
       setToken(null);

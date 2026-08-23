@@ -1,6 +1,6 @@
 // hooks/useEditAuthor.js
 import { useMutation } from "@apollo/client/react";
-import { EDIT_AUTHOR, GET_ALL_AUTHORS } from "../../queries";
+import { EDIT_AUTHOR, GET_ALL_AUTHORS } from "../queries";
 
 const useEditAuthor = () => {
   const [editAuthorMutation, result] = useMutation(EDIT_AUTHOR, {

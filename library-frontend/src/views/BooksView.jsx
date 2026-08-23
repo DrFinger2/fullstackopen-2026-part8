@@ -1,4 +1,4 @@
-import useBooks from "../hooks/bookstore/useBooks";
+import useBooks from "../hooks/useBooks";
 import BookTable from "../components/BookTable";
 
 const BooksView = () => {

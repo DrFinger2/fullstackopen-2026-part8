@@ -1,5 +1,5 @@
-import useField from "../hooks/component/useField";
-import useNotification from "../hooks/component/useNotification";
+import useField from "../hooks/useField";
+import useNotification from "../hooks/useNotification";
 
 const LoginForm = ({ onLogin }) => {
   const username = useField("text");

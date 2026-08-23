@@ -1,5 +1,5 @@
 import LoginForm from "../components/LoginForm";
-import useAuth from "../hooks/authentication/useLogin";
+import useAuth from "../hooks/useAuth";
 
 const LoginView = ({ setPage }) => {
   const { login } = useAuth();

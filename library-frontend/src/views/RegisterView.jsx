@@ -1,5 +1,5 @@
 import RegisterForm from "../components/RegisterForm";
-import useAuth from "../hooks/authentication/useRegister";
+import useAuth from "../hooks/useAuth";
 
 const RegisterView = ({ setPage }) => {
   const { register } = useAuth();
