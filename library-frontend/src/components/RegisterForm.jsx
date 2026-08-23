@@ -22,11 +22,11 @@ const RegisterForm = ({ onRegister }) => {
   return (
     <form onSubmit={handleRegister}>
       <div>
-        <div>username</div>
+        <label>username</label>
         <input {...username.field} />
       </div>
       <div>
-        <div>Favorite genre </div>
+        <label>Favorite genre </label>
         <input {...favoriteGenre.field} />
       </div>
       <button type="submit">Register</button>

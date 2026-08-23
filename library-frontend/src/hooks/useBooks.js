@@ -5,6 +5,7 @@ import { GET_ALL_BOOKS } from "../queries";
 const useBooks = (filters) => {
   const { data, loading, error } = useQuery(GET_ALL_BOOKS, {
     variables: filters,
+    fetchPolicy: "no-cache",
   });
 
   return {

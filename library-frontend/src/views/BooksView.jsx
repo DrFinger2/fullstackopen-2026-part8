@@ -16,6 +16,12 @@ const BooksView = () => {
 
   return (
     <div>
+      <h2>Books</h2>
+      {selectedGenre && (
+        <p>
+          in genre <strong>{selectedGenre}</strong>
+        </p>
+      )}
       <ToggleButtonGroup
         options={genres}
         selected={selectedGenre}

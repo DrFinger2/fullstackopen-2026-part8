@@ -1,10 +1,19 @@
 // hooks/useAddBook.js
 import { useMutation } from "@apollo/client/react";
-import { ADD_BOOK, GET_ALL_BOOKS, GET_ALL_AUTHORS } from "../queries";
+import {
+  ADD_BOOK,
+  GET_ALL_BOOKS,
+  GET_ALL_AUTHORS,
+  GET_ALL_GENRES,
+} from "../queries";
 
 const useAddBook = () => {
   const [addBookMutation, result] = useMutation(ADD_BOOK, {
-    refetchQueries: [{ query: GET_ALL_BOOKS }, { query: GET_ALL_AUTHORS }],
+    refetchQueries: [
+      { query: GET_ALL_BOOKS },
+      { query: GET_ALL_AUTHORS },
+      { query: GET_ALL_GENRES },
+    ],
   });
 
   const addBook = async ({ title, author, published, genres }) => {
