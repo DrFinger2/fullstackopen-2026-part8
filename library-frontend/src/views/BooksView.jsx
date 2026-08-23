@@ -10,7 +10,7 @@ const BooksView = () => {
 
   return (
     <div>
-      <h2>books</h2>
+      <h2>Books</h2>
       <BookTable books={books} />
     </div>
   );

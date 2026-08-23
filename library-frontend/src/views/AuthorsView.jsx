@@ -3,6 +3,7 @@ import useEditAuthor from "../hooks/bookstore/UseEditAuthors";
 import AuthorTable from "../components/AuthorTable";
 import EditAuthorForm from "../components/EditAuthorForm";
 import useUser from "../hooks/authentication/useUser";
+import Show from "../components/Show";
 
 const AuthorsView = () => {
   const { isLoggedIn } = useUser();
@@ -15,11 +16,12 @@ const AuthorsView = () => {
 
   return (
     <div>
-      <h2>authors</h2>
+      <h2>Authors</h2>
       <AuthorTable authors={authors} />
-      {isLoggedIn && (
+
+      <Show when={isLoggedIn}>
         <EditAuthorForm authors={authors} onEditAuthor={editAuthor} />
-      )}
+      </Show>
     </div>
   );
 };
