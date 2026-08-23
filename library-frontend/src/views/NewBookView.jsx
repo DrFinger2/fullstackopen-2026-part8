@@ -1,10 +1,12 @@
 import useAddBook from "../hooks/bookstore/useAddBook";
 import NewBookForm from "../components/NewBookForm";
+import useUser from "../hooks/authentication/useUser";
 
-const NewBookView = ({ show, isLoggedIn }) => {
+const NewBookView = () => {
+  const { isLoggedIn } = useUser();
   const { addBook } = useAddBook();
 
-  if (!show || !isLoggedIn) {
+  if (!isLoggedIn) {
     return null;
   }
 

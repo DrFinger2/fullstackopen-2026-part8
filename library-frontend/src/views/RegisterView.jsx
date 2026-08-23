@@ -1,12 +1,8 @@
 import RegisterForm from "../components/RegisterForm";
 import useRegister from "../hooks/authentication/useRegister";
 
-const RegisterView = ({ show }) => {
+const RegisterView = () => {
   const { register } = useRegister();
-
-  if (!show) {
-    return null;
-  }
 
   const setError = (message) => {
     console.error(`Error message: ${message}`);

@@ -5,37 +5,46 @@ import NewBookView from "./views/NewBookView";
 import LoginView from "./views/LoginView";
 import RegisterView from "./views/RegisterView";
 import useUser from "./hooks/authentication/useUser";
-import Button from "./components/Button";
+import Show from "./components/Show";
 import useLogout from "./hooks/authentication/useLogout";
+
+const pages = {
+  authors: AuthorsView,
+  books: BooksView,
+  add: NewBookView,
+  login: LoginView,
+  register: RegisterView,
+};
+
 const App = () => {
   const [page, setPage] = useState("authors");
   const { isLoggedIn } = useUser();
   const { logout } = useLogout();
+  const Page = pages[page];
+
+  const handleLogout = () => {
+    logout();
+    setPage("authors");
+  };
 
   return (
     <div>
       <div>
-        <Button onClick={() => setPage("authors")}>Authors</Button>
-        <Button onClick={() => setPage("books")}>Books</Button>
-        <Button onClick={() => setPage("add")} show={isLoggedIn}>
-          Add book
-        </Button>
-        <Button onClick={() => setPage("login")} show={!isLoggedIn}>
-          Login
-        </Button>
-        <Button onClick={() => setPage("register")} show={!isLoggedIn}>
-          Register
-        </Button>
-        <Button onClick={logout} show={isLoggedIn}>
-          Logout
-        </Button>
+        <button onClick={() => setPage("authors")}>Authors</button>
+        <button onClick={() => setPage("books")}>Books</button>
+
+        <Show when={isLoggedIn}>
+          <button onClick={() => setPage("add")}>Add book</button>
+          <button onClick={handleLogout}>Logout</button>
+        </Show>
+
+        <Show when={!isLoggedIn}>
+          <button onClick={() => setPage("login")}>Login</button>
+          <button onClick={() => setPage("register")}>Register</button>
+        </Show>
       </div>
 
-      <AuthorsView show={page === "authors"} isLoggedIn={isLoggedIn} />
-      <BooksView show={page === "books"} />
-      <NewBookView show={page === "add"} isLoggedIn={isLoggedIn} />
-      <LoginView show={page === "login"} isLoggedIn={isLoggedIn} />
-      <RegisterView show={page === "register"} isLoggedIn={isLoggedIn} />
+      <Page setPage={setPage} />
     </div>
   );
 };
