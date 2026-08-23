@@ -4,9 +4,11 @@ import BooksView from "./views/BooksView";
 import NewBookView from "./views/NewBookView";
 import LoginView from "./views/LoginView";
 import RegisterView from "./views/RegisterView";
+import useUser from "./hooks/authentication/useUser";
 
 const App = () => {
   const [page, setPage] = useState("authors");
+  const { isLoggedIn } = useUser();
 
   return (
     <div>
@@ -20,9 +22,9 @@ const App = () => {
 
       <AuthorsView show={page === "authors"} />
       <BooksView show={page === "books"} />
-      <NewBookView show={page === "add"} />
-      <LoginView show={page === "login"} />
-      <RegisterView show={page === "register"} />
+      <NewBookView show={page === "add" && isLoggedIn} />
+      <LoginView show={page === "login" && !isLoggedIn} />
+      <RegisterView show={page === "register" && !isLoggedIn} />
     </div>
   );
 };
