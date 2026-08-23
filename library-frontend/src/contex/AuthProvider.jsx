@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
         logout: {
           logout: logout,
           loading: false,
-          error: null,
+          error: undefined,
         },
         register: {
           login: register,
