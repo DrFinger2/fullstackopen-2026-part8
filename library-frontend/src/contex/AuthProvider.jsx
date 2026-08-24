@@ -7,7 +7,6 @@ import AuthContext from "./AuthContext";
 
 const AuthProvider = ({ children }) => {
   const client = useApolloClient();
-
   const [loginMutation, loginResult] = useMutation(LOGIN);
   const [registerMutation, registerResult] = useMutation(REGISTER);
   const [token, setToken] = useState(() =>

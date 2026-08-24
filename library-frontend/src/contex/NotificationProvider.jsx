@@ -17,6 +17,9 @@ const NotificationProvider = ({ children }) => {
         setType("error");
         setIdx(idx + 1);
       },
+      clear: () => {
+        setMessage("");
+      },
     },
 
     value: { type, message, idx },

@@ -21,36 +21,41 @@ const pages = {
 };
 
 const App = () => {
-  const { type, message, idx } = useNotification();
+  const { type, message, idx, clear } = useNotification();
   const { isLoggedIn, logout } = useAuth();
   const [page, setPage] = useState("authors");
   const Page = pages[page];
 
+  const navigate = (nextPage) => {
+    clear();
+    setPage(nextPage);
+  };
+
   const handleLogout = () => {
     logout();
-    setPage("authors");
+    navigate("authors");
   };
 
   return (
     <div>
       <div>
-        <button onClick={() => setPage("authors")}>Authors</button>
-        <button onClick={() => setPage("books")}>Books</button>
+        <button onClick={() => navigate("authors")}>Authors</button>
+        <button onClick={() => navigate("books")}>Books</button>
 
         <Show when={isLoggedIn}>
-          <button onClick={() => setPage("add")}>Add book</button>
-          <button onClick={() => setPage("recommend")}>Recommend</button>
+          <button onClick={() => navigate("add")}>Add book</button>
+          <button onClick={() => navigate("recommend")}>Recommend</button>
           <button onClick={handleLogout}>Logout</button>
         </Show>
 
         <Show when={!isLoggedIn}>
-          <button onClick={() => setPage("login")}>Login</button>
-          <button onClick={() => setPage("register")}>Register</button>
+          <button onClick={() => navigate("login")}>Login</button>
+          <button onClick={() => navigate("register")}>Register</button>
         </Show>
       </div>
 
       <Notification message={message} type={type} idx={idx} />
-      <Page setPage={setPage} />
+      <Page setPage={navigate} />
     </div>
   );
 };

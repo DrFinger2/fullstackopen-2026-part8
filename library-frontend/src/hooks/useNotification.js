@@ -7,6 +7,7 @@ const useNotification = () => {
     ...value,
     success: controls.success,
     error: controls.error,
+    clear: controls.clear,
   };
 };
 export default useNotification;
