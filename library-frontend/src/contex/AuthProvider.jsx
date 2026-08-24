@@ -1,4 +1,4 @@
-import { useMutation } from "@apollo/client/react";
+import { useMutation, useApolloClient } from "@apollo/client/react";
 import { useState } from "react";
 import { LOGIN } from "../queries";
 import { REGISTER } from "../queries";
@@ -6,6 +6,8 @@ import { REGISTER } from "../queries";
 import AuthContext from "./AuthContext";
 
 const AuthProvider = ({ children }) => {
+  const client = useApolloClient();
+
   const [loginMutation, loginResult] = useMutation(LOGIN);
   const [registerMutation, registerResult] = useMutation(REGISTER);
   const [token, setToken] = useState(() =>
@@ -28,6 +30,7 @@ const AuthProvider = ({ children }) => {
     async () => {
       localStorage.removeItem("library-user-token");
       setToken(null);
+      await client.resetStore();
     },
     { loading: false, error: undefined },
   );
