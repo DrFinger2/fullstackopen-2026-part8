@@ -13,11 +13,11 @@ const RecommendView = () => {
   return (
     <div>
       <h2>Recommendations</h2>
+      <div>
+        <p>books in your favorite genre:</p>
+      </div>
       <p>
-        books in your favorite genre:
-        <div>
-          <strong>{user.favoriteGenre}</strong>
-        </div>
+        <strong>{user.favoriteGenre}</strong>
       </p>
       <BookTable books={books} />
     </div>

@@ -4,8 +4,8 @@ import NewBookForm from "../components/NewBookForm";
 const NewBookView = () => {
   const { addBook } = useAddBook();
 
-  const handleAddBook = async (title, author, published, genres) => {
-    await addBook(title, author, published, genres);
+  const handleAddBook = async ({ title, author, published, genres }) => {
+    await addBook({ title, author, published, genres });
   };
 
   return (
